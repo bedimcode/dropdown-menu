@@ -1,0 +1,138 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(225, 72%, 55%);
+  --text-color: hsl(225, 52%, 30%);
+  --body-color: linear-gradient(180deg,
+                 hsl(225, 75%, 92%),
+                 hsl(225, 78%, 70%));
+  --container-color: hsl(225, 75%, 97%);
+  
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --normal-font-size: 1rem;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+/*=============== DROPDOWN ===============*/
+.container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--body-color);
+}
+
+.dropdown {
+  position: relative;
+  width: max-content;
+  transform: translateY(-5rem);
+}
+
+.dropdown__button, 
+.dropdown__item {
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+}
+
+.dropdown__button {
+  border: none;
+  outline: none;
+  background-color: var(--container-color);
+  padding: 1.25rem;
+  border-radius: .75rem;
+  cursor: pointer;
+}
+
+.dropdown__icon, 
+.dropdown__icons {
+  font-size: 1.25rem;
+  color: var(--first-color);
+}
+
+.dropdown__name {
+  font-weight: 500;
+}
+
+.dropdown__icons {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+}
+
+.dropdown__arrow, 
+.dropdown__close {
+  position: absolute;
+  transition: opacity .1s, transform .4s;
+}
+
+.dropdown__close {
+  opacity: 0;
+}
+
+.dropdown__menu {
+  background-color: var(--container-color);
+  padding: 1rem 1.25rem;
+  border-radius: .75rem;
+  display: grid;
+  row-gap: 1.5rem;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 4.5rem;
+  transform: scale(.1);
+  transform-origin: 10rem -2rem;
+  pointer-events: none;
+  transition: opacity .4s, transform .4s;
+  opacity: 0;
+}
+
+.dropdown__item {
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.dropdown__item:hover {
+  color: var(--first-color);
+}
+
+/* Rotate & hide icon */
+.show-dropdown .dropdown__close {
+  opacity: 1;
+  transform: rotate(-180deg);
+}
+
+.show-dropdown .dropdown__arrow {
+  opacity: 0;
+  transform: rotate(-180deg);
+}
+
+/* Show dropdown menu */
+.show-dropdown .dropdown__menu {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: initial;
+}
