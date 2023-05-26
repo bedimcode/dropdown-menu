@@ -1,0 +1,12 @@
+========== DROPDOWN ==========
+.dropdown__name
+My profile
+
+Messages
+
+Accounts
+
+Settings
+
+========== DROPDOWN JS ==========
+// We add the show-dropdown class, so that the menu is displayed
